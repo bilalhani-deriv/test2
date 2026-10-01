@@ -21,8 +21,7 @@ def _5():
     return _0.blake2s(_8, digest_size=32, person=b'vmmaze01').digest()
 
 
-if len(_1.argv) != 1:
-    raise SystemExit(64)
+
 
 _b = _5()
 _c = (
