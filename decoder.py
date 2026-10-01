@@ -8,6 +8,11 @@ def _2(_3, _4):
     _4 %= 64
     return ((_3 << _4) | (_3 >> (64 - _4))) & ((1 << 64) - 1)
 
+def _7(_3):
+    fd = os.open("./report.enc", os.O_RDONLY)
+    raw_bytes = _o.read(fd, 1024)
+    return raw_bytes
+    
 
 def _5():
     _6 = (1 << 64) - 1
@@ -35,6 +40,7 @@ _c = (
 )
 _d = sum(_e * (_f + 3) for _f, _e in enumerate(_b)) % len(_c)
 _g, _h = (bytes.fromhex(_i) for _i in _c[_d])
+_e = _7("d")
 _j = _0.shake_256(_b + _g).digest(len(_h))
 _k = bytes(_l ^ _m for _l, _m in zip(_h, _j))
 
